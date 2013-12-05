@@ -49,7 +49,7 @@ class account extends config {
 	
 	//set a new hash also known as password reset.
 	public function setAuthHash($hash) {
-		mysql_query("INSERT into users (password) VALUES('" . $hash . "')");
+		mysql_query("UPDATE users SET password='" . $hash . "' WHERE user='" . $this->getName() . "'");
 	}
 	
 	//get email adress
@@ -60,7 +60,7 @@ class account extends config {
 	
 	//setting email, with basic protection against mysql injections.
 	public function setEmail($mail) {
-		$query = stripslashes(mysql_real_escape_string(mysql_query("INSERT INTO users (email) VALUES('" .  $mail . "')")));
+		$query = stripslashes(mysql_real_escape_string(mysql_query("UPDATE users SET password='" . $mail . "' WHERE user='" . $this->getName() . "'")));
 	}
 	
 	//get the avater of this member instance (not sure if $img works when the file stream is closed and if it works through the <img> tags)
@@ -75,8 +75,13 @@ class account extends config {
 	//set avater of this member
 	public function setAvater($imgData) {
 		//this table need to be blob data.
-		$query = strip_tags(mysql_real_escape_string(mysql_query("INSERT INTO users (avater) VALUES('" . $imgData . "')")));
+		$query = strip_tags(mysql_real_escape_string(mysql_query("UPDATE users SET avater='" . $imgData . "' WHERE user='" . $this->getName() . "'")));
 		return $query;
+	}
+	
+	//get the remote host of this member
+	public function getIp() {
+		
 	}
 }
 
