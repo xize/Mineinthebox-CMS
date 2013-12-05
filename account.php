@@ -132,5 +132,4 @@ class account extends config {
 		}
 	}
 }
-
 ?>
