@@ -64,11 +64,19 @@ class account extends config {
 	}
 	
 	//get the avater of this member instance (not sure if $img works when the file stream is closed and if it works through the <img> tags)
+	//if this not work we need to investigate more towards blob data handling.
 	public function getAvater() {
 		$query = mysql_query("SELECT avater FROM users WHERE user='" . $this->getName() . "'");
 		$img = fopen($this->getName(), w);
 		fclose($this->getName());
 		return $img;
+	}
+	
+	//set avater of this member
+	public function setAvater($imgData) {
+		//this table need to be blob data.
+		$query = strip_tags(mysql_real_escape_string(mysql_query("INSERT INTO users (avater) VALUES('" . $imgData . "')")));
+		return $query;
 	}
 }
 
