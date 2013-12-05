@@ -6,7 +6,7 @@ class connection {
 	protected $dbpass;
 	protected $db;
 	
-	public final function setHost($host) {
+	public function setHost($host) {
 		$network = $host;
 	}
 	
