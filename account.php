@@ -90,6 +90,18 @@ class account extends config {
 		$ip = (String) mysql_query("UPDATE users SET ip='" . $_SERVER['REMOTE_ADDR'] . "' WHERE user='" . $this->getName() . "'");
 		return $ip;
 	}
+	
+	//get last active timestamp
+	public function getLastOnline() {
+		$last = (Array) mysql_query("SELECT lastOnline FROM users WHERE user='" . $this->getName() . "'");
+		return $last;
+	}
+	
+	//update last active timestamp
+	public function updateLastOnline() {
+		$last = (boolean) mysql_query("UPDATE users SET lastOnline='" . getDate() . "' WHERE user='" . $this->getName() . "'");
+		return $last;
+	}
 }
 
 ?>
