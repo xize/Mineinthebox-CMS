@@ -81,7 +81,14 @@ class account extends config {
 	
 	//get the remote host of this member
 	public function getIp() {
-		
+		$ip = (String) mysql_query("SELECT ip FROM users WHERE user='" . $this->getName() . "'");
+		return ip;
+	}
+	
+	//set ip from remote host
+	public function setIp() {
+		$ip = (String) mysql_query("UPDATE users SET ip='" . $_SERVER['REMOTE_ADDR'] . "' WHERE user='" . $this->getName() . "'");
+		return $ip;
 	}
 }
 
