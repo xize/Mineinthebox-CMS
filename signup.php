@@ -29,6 +29,8 @@ class signup extends config {
 			} else {
 				return true;
 			}
+		} else {
+			throw new InvalidEmailException("InvalidEmailException: your email is invalid please make sure your email contains A-Z0-9, @, and \".\"");
 		}
 	}
 }
