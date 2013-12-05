@@ -1,4 +1,5 @@
 <?php
+use "config.php";
 class account extends config {
 	private $userName;
 	
