@@ -1,5 +1,6 @@
 <?php
-use "config.php";
+require_once 'config.php';
+require_once 'exceptions/InvalidEnumException.php';
 class account extends config {
 	private $userName;
 	

@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/connection.php';
 class config extends connection {
 	###########################################
 	#   Fill here your database information   #
