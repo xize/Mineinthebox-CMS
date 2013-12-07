@@ -133,5 +133,24 @@ class account extends config {
 			throw new InvalidEnumException("InvalidEnumException: you are trying to use a non existing rank!");
 		}
 	}
+	
+	public function isLoggedIn() {
+		$sql = mysql_query("SELECT loggedIn FROM users WHERE user='" . $this->getName() . "'");
+		if($sql == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public function setOnline() {
+		$sql = mysql_query("UPDATE users(loggedIn) VALUES('1') WHERE user='" . $this->getName() . "'");
+		return $sql;
+	}
+	
+	public function setOffline() {
+		$sql = mysql_query("UPDATE users(loggedIn) VALUES('0') WHERE user='" . $this->getName() . "'");
+		return $sql;
+	}
 }
 ?>
