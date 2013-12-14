@@ -26,14 +26,15 @@ class HashMap {
 	 * 
 	 * 
 	 */
-	//ugh this is not very nice! I can't use '=>' like in a array so instead we do it as a String...
+	//ugh this is not very nice! I can't use '=>' like in a array so instead we do it as a hardcoded String...
 	public function put($key, $value) {
 		if($this->containsKey($key)) {
 			$this->remove($key);
 			$semi = "'" .  $key  . "' => '" . $value . "'";
 			$this->arg[$this->size++] = semi;
 		}
-		$this->arg[$this->size++] = $semi = "" .  $key  . " => " . $value . "";
+		$semi = "'" .  $key  . "' => '" . $value . "'";
+		$this->arg[$this->size++] = semi;
 	}
 	
 	public function containsKey($key) {
