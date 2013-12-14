@@ -5,7 +5,7 @@ class account extends config {
 	private $userName;
 	
 	// this is our constructor which will wrap our member data like a mini database ;-)
-	public function __account($userName) {
+	public function __construct($userName) {
 		$this->userName = $userName;
 	}
 	
