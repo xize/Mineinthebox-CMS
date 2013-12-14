@@ -26,10 +26,14 @@ class HashMap {
 	 * 
 	 * 
 	 */
+	//ugh this is not very nice! I can't use '=>' like in a array so instead we do it as a String...
 	public function put($key, $value) {
 		if($this->containsKey($key)) {
-			$this->IndexOf($key);
+			$this->remove($key);
+			$semi = "'" .  $key  . "' => '" . $value . "'";
+			$this->arg[$this->size++] = semi;
 		}
+		$this->arg[$this->size++] = $semi = "" .  $key  . " => " . $value . "";
 	}
 	
 	public function containsKey($key) {
@@ -59,6 +63,15 @@ class HashMap {
 				return $index[0];
 			}
 			return -1;
+		}
+	}
+	
+	//hopes that the value gets removed though like as in a row
+	//but I don't think this works probably ive remove both value and key.
+	public function remove($key) {
+		if(in_array($key, array_keys($key))) {
+			unset($this->arg[$key]);
+			--$this->size;
 		}
 	}
 	
