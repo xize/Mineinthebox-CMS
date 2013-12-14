@@ -47,7 +47,7 @@ class HashMap {
 	}
 	
 	public function size() {
-		return $this->size;
+		return array_keys($this->size);
 	}
 	
 	private function IndexOf($obj) {
