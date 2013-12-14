@@ -137,6 +137,18 @@ class ArrayList {
 		}
 		return false;
 	}
+	
+	/**
+	 * 
+	 * @author xize
+	 * @param put a Array in the ArrayList
+	 *
+	 */
+	public function addAll($args) {
+		foreach($args as $arg) {
+			$this->add($arg);
+		}
+	}
 		
 }
 ?>
