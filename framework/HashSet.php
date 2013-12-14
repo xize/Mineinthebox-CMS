@@ -17,6 +17,8 @@ class HashSet {
 	 */
 	public function add($obj) {
 		if($this->contains($obj)) {
+			$this->remove($obj);
+			$this->add($obj);
 			return;
 		}
 		$this->ar[$this->size++] = $obj;
