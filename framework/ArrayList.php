@@ -149,6 +149,19 @@ class ArrayList {
 			$this->add($arg);
 		}
 	}
+	
+	/**
+	 * 
+	 * @author xize
+	 * @return boolean
+	 * 
+	 * 
+	 */
+	public function clear() {
+		$this->ar = array();
+		$this->size = 0;
+		return true;
+	}
 		
 }
 ?>
